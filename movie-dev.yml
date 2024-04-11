@@ -3,6 +3,13 @@ server:
 spring:
   application:
     name: microservice-movie
+  zipkin:
+    base-url: http://localhost:9041
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1.0 # 追蹤日誌更新頻率 (數值越大更新越快)
 eureka:
   client:
     register-with-eureka: true
