@@ -1,0 +1,27 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: microservice-user
+  datasource:
+    url: jdbc:mysql://localhost:3305/springCloud?serverTimezone=Asia/Taipei&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+    generate-ddl: true
+eureka:
+  client:
+    # 是否註冊至 server
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8888/eureka
+  #      defaultZone: http://127.0.0.1:8888/eureka,http://127.0.0.1:9999/eureka
+  instance:
+    prefer-ip-address: true
+    # 服務提供方向 server 發送 heartbeat 時間間隔(秒)
+    lease-renewal-interval-in-seconds: 30
+    # server 偵測服務提供方失效時間(秒)
+    lease-expiration-duration-in-seconds: 90
